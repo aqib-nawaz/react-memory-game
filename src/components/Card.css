@@ -1,0 +1,31 @@
+.card {
+    width: 6rem;
+    height: 6rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px 4px #dedede89;
+    transition: 0.3s;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+}
+
+.card-face {
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.card-back-face {
+    transform: rotateY(180deg);
+}
+.isFlipped{
+    transform: rotateY(180deg);
+}
+
+.card .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
