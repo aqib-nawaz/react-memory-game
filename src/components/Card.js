@@ -9,32 +9,26 @@ export default class Card extends Component {
         };
     }
 
-
     cardHandler = (selectedCard) => {
         this.setState({
             isFlipped: true,
         });
-        this.props.selectHandle(selectedCard, this.flipBack)
-        
+        this.props.selectHandle(selectedCard, this.flipBack);
     };
 
-    flipBack = () =>{
-        if(!this.props.isMatched){
+    flipBack = () => {
+        if (!this.props.isMatched) {
             setTimeout(() => {
                 this.setState({
-                    isFlipped: false
-                })
+                    isFlipped: false,
+                });
             }, 300);
         }
-    }
-
+    };
 
     render() {
         return (
-            <motion.div
-                className="card"
-                onClick={() => this.cardHandler(this.props.name)}
-            >
+            <div className="card" onClick={() => this.cardHandler(this.props.name)}>
                 <motion.div
                     className="content"
                     animate={this.state.isFlipped ? { rotateY: 180 } : { rotateY: 0 }}
@@ -55,7 +49,7 @@ export default class Card extends Component {
                         />
                     </motion.div>
                 </motion.div>
-            </motion.div>
+            </div>
         );
     }
 }
