@@ -31,8 +31,11 @@ export default class App extends Component {
       cardArray: shuffledList.concat(arrayShuffle(imageList)),
     });
   }
-  gameStartHandler = () => {
-    
+  restartHandler = () => {
+    const shuffledList = arrayShuffle(imageList);
+    this.setState({
+      cardArray: shuffledList.concat(arrayShuffle(imageList)),
+    });
   };
 
   
@@ -40,10 +43,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="main-container">
-        <Button value="RestartStart" onClick={this.gameStartHandler} />
+        <h2>Memory Game</h2>
         <Container
           imgArray={this.state.cardArray}
         />
+        <Button value="Restart Game" onClick={this.gameStartHandler} />
       </div>
     );
   }

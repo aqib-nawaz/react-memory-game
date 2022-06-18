@@ -12,13 +12,13 @@ export default class Container extends Component {
 
     isInitialSelect = true
 
-    selectHandle = (card, flipBack) =>{
+    selectHandle = (card, flipBack) => {
+
         if(this.isInitialSelect){
             this.setState({
                 selectedCard: card,
                 matched: this.state.selectedCard && false
             })
-
             this.isInitialSelect = false
 
         } else {
