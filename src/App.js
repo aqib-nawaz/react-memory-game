@@ -28,16 +28,18 @@ export default class App extends Component {
     };
   }
 
-gameHandler = () => {
+gameStartHandler = () => {
+const shuffledList = arrayShuffle(imageList);
+
   this.setState({
-    cardArray: imageList.concat(imageList)
+    cardArray: shuffledList.concat(arrayShuffle(imageList))
   })
 }
 
 
   render() {
     return <div className="main-container">
-      <Button value="Start" onClick= {this.gameHandler}/>
+      <Button value="Start" onClick= {this.gameStartHandler}/>
       <Container imgArray = {this.state.cardArray}/>
       
     </div>;
