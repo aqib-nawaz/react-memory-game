@@ -5,48 +5,44 @@ import "./App.css";
 import arrayShuffle from "array-shuffle";
 
 const imageList = [
-  { name: "bird", src: "./images/bird.png" },
-  { name: "cat", src: "./images/cat.jpg" },
-  { name: "chick", src: "./images/chick.jpg" },
-  { name: "cow", src: "./images/cow.png" },
-  { name: "dog", src: "./images/dog.png" },
-  { name: "duck", src: "./images/duck.jpg" },
-  { name: "fish", src: "./images/fish.jpg" },
-  { name: "panda", src: "./images/panda.jpg" },
-  { name: "rabbit", src: "./images/rabbit.jpg" },
-  { name: "squirrel", src: "./images/squirrel.jpg" },
+  { name: "bird"},
+  { name: "cat" },
+  { name: "chick"},
+  { name: "cow"},
+  { name: "dog"},
+  { name: "duck"},
+  { name: "fish"},
+  { name: "panda"},
+  { name: "rabbit"},
+  { name: "squirrel"},
 ];
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      turns: 0,
-      isFlipped: false,
-      firstChoice: "",
-      secondChoice: "",
+      matched: false,
       cardArray: [],
     };
   }
 
-  gameStartHandler = () => {
+  componentDidMount(){
     const shuffledList = arrayShuffle(imageList);
-
     this.setState({
       cardArray: shuffledList.concat(arrayShuffle(imageList)),
     });
+  }
+  gameStartHandler = () => {
+    
   };
 
-  choiceHandler = (firstChoice, secondChoice) => {
-
-  };
+  
 
   render() {
     return (
       <div className="main-container">
-        <Button value="Start" onClick={this.gameStartHandler} />
+        <Button value="RestartStart" onClick={this.gameStartHandler} />
         <Container
           imgArray={this.state.cardArray}
-          onClick={this.choiceHandler}
         />
       </div>
     );

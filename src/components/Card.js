@@ -6,17 +6,29 @@ export default class Card extends Component {
         super();
         this.state = {
             isFlipped: false,
-            choice1: "",
-            choice2: "",
         };
     }
 
-    cardHandler = (selectCardName) => {
-        console.log(selectCardName);
+
+    cardHandler = (selectedCard) => {
         this.setState({
-            isFlipped: !this.state.isFlipped,
+            isFlipped: true,
         });
+        this.props.selectHandle(selectedCard, this.flipBack)
+        
     };
+
+    flipBack = () =>{
+        if(!this.props.isMatched){
+            setTimeout(() => {
+                this.setState({
+                    isFlipped: false
+                })
+            }, 300);
+        }
+    }
+
+
     render() {
         return (
             <motion.div
