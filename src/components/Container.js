@@ -8,29 +8,32 @@ export default class Container extends Component {
         super();
         this.state = {
             selectedCard: "",
+            selectedCardId: "",
             matched: false,
             gameOver: false,
         };
     }
 
     isInitialSelect = true;
-    selectHandle = (card, flipBack) => {
+    selectHandle = (card, id, flipBack) => {
         if (this.isInitialSelect) {
             this.setState({
                 selectedCard: card,
+                selectedCardId: id,
                 matched: this.state.selectedCard && false,
             });
             this.isInitialSelect = false;
         } else {
-            this.handleMatch(card, flipBack);
+            this.handleMatch(card, id, flipBack);
         }
     };
 
-    handleMatch = (card, flipBack) => {
-        if (this.state.selectedCard === card) {
+    handleMatch = (card, id, flipBack) => {
+        if (this.state.selectedCard === card && this.state.selectedCardId !== id) {
             this.setState({
                 matched: true,
                 selectedCard: "",
+                selectedCardId:""
             });
 
             console.log("matched");
@@ -54,8 +57,8 @@ export default class Container extends Component {
         }
     };
     restartHandler = () => {
-        window.location.reload(false)
-    }
+        window.location.reload(false);
+    };
     render() {
         return (
             <motion.div
@@ -72,7 +75,6 @@ export default class Container extends Component {
                     >
                         <h1>Game Completed Successfully</h1>
                         <Button value="Restart Game" onClick={this.restartHandler} />
-
                     </motion.div>
                 ) : (
                     this.props.imgArray.map((img, index) => (
@@ -82,6 +84,7 @@ export default class Container extends Component {
                             key={index}
                             selectHandle={this.selectHandle}
                             isMatched={!this.isInitialSelect ? this.state.matched : ""}
+                            id={index}
                         />
                     ))
                 )}

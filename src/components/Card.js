@@ -9,11 +9,12 @@ export default class Card extends Component {
         };
     }
 
-    cardHandler = (selectedCard) => {
+    cardHandler = (selectedCard, id) => {
         this.setState({
             isFlipped: true,
         });
-        this.props.selectHandle(selectedCard, this.flipBack);
+
+        this.props.selectHandle(selectedCard, id, this.flipBack);
     };
 
     flipBack = () => {
@@ -28,7 +29,10 @@ export default class Card extends Component {
 
     render() {
         return (
-            <div className="card" onClick={() => this.cardHandler(this.props.name)}>
+            <div
+                className="card"
+                onClick={() => this.cardHandler(this.props.name, this.props.id)}
+            >
                 <motion.div
                     className="content"
                     animate={this.state.isFlipped ? { rotateY: 180 } : { rotateY: 0 }}
