@@ -6,3 +6,7 @@
     align-content: center;
     justify-items: center;
 }
+.main-container h2{
+    color: rgb(100, 216, 255);
+    font-size: 32px;
+}

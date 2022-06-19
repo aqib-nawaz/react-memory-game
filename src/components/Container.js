@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "./Card";
 import "./Container.css";
+import { motion } from "framer-motion";
 export default class Container extends Component {
     constructor() {
         super();
@@ -53,12 +54,20 @@ export default class Container extends Component {
     };
     render() {
         return (
-            <div className="container">
-                
+            <motion.div
+                initial={{ x: -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ ease: "easeOut", duration: 1 }}
+                className={this.state.gameOver ? "flex-container" : "container"}
+            >
                 {this.state.gameOver ? (
-                    <div>
+                    <motion.div
+                        initial={{ y: -100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        className="game-over-container"
+                    >
                         <h1>Game Over</h1>
-                    </div>
+                    </motion.div>
                 ) : (
                     this.props.imgArray.map((img, index) => (
                         <Card
@@ -70,7 +79,7 @@ export default class Container extends Component {
                         />
                     ))
                 )}
-            </div>
+            </motion.div>
         );
     }
 }
