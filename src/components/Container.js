@@ -83,7 +83,6 @@ export default class Container extends Component {
                             name={img.name}
                             key={index}
                             selectHandle={this.selectHandle}
-                            isMatched={!this.isInitialSelect ? this.state.matched : ""}
                             id={index}
                         />
                     ))

@@ -18,13 +18,11 @@ export default class Card extends Component {
     };
 
     flipBack = () => {
-        if (!this.props.isMatched) {
-            setTimeout(() => {
-                this.setState({
-                    isFlipped: false,
-                });
-            }, 300);
-        }
+        setTimeout(() => {
+            this.setState({
+                isFlipped: false,
+            });
+        }, 300);
     };
 
     render() {
