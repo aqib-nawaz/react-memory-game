@@ -1,4 +1,4 @@
-.main-container{
+.main-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,8 @@
     align-content: center;
     justify-items: center;
 }
-.header{
+
+.header {
     background-color: rgb(63, 223, 255);
     padding: 0px;
     width: 100%;
@@ -15,9 +16,16 @@
     box-shadow: 0px 0px 15px 2px #3e3e3e89;
     margin-bottom: 30px;
 }
-.main-container > .header > h2{
+
+.main-container>.header>h2 {
     color: rgb(255, 255, 255);
     font-size: 40px;
     font-weight: bold;
     text-shadow: 2px -1px 2px black;
+}
+
+@media (max-width:760px) {
+    .main-container>.header>h2 {
+        font-size: 35px;
+    }
 }

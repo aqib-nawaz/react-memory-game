@@ -20,8 +20,8 @@ export default class Card extends Component {
     flipBack = () => {
         setTimeout(() => {
             this.setState({
-                isFlipped: false,
-            });
+                isFlipped: false
+            })
         }, 300);
     };
 
