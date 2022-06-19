@@ -12,6 +12,8 @@
     width: 100%;
     line-height: 0px;
     text-align: center;
+    box-shadow: 0px 0px 15px 2px #3e3e3e89;
+    margin-bottom: 30px;
 }
 .main-container > .header > h2{
     color: rgb(255, 255, 255);
