@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "./components/Button";
 import Container from "./components/Container";
 import "./App.css";
 import arrayShuffle from "array-shuffle";
@@ -20,34 +19,30 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      matched: false,
       cardArray: [],
     };
   }
 
+  
   componentDidMount(){
     const shuffledList = arrayShuffle(imageList);
     this.setState({
       cardArray: shuffledList.concat(arrayShuffle(imageList)),
     });
   }
-  restartHandler = () => {
-    const shuffledList = arrayShuffle(imageList);
-    this.setState({
-      cardArray: shuffledList.concat(arrayShuffle(imageList)),
-    });
-  };
+  
 
   
 
   render() {
     return (
       <div className="main-container">
-        <h2>Memory Game</h2>
+        <div className="header">
+          <h2>Memory Game</h2>
+        </div>
         <Container
           imgArray={this.state.cardArray}
         />
-        <Button value="Restart Game" onClick={this.gameStartHandler} />
       </div>
     );
   }

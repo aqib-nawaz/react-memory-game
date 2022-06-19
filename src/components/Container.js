@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "./Card";
 import "./Container.css";
 import { motion } from "framer-motion";
+import Button from "./Button";
 export default class Container extends Component {
     constructor() {
         super();
@@ -52,6 +53,9 @@ export default class Container extends Component {
             });
         }
     };
+    restartHandler = () => {
+        window.location.reload(false)
+    }
     render() {
         return (
             <motion.div
@@ -66,7 +70,9 @@ export default class Container extends Component {
                         animate={{ y: 0, opacity: 1 }}
                         className="game-over-container"
                     >
-                        <h1>Game Over</h1>
+                        <h1>Game Completed Successfully</h1>
+                        <Button value="Restart Game" onClick={this.restartHandler} />
+
                     </motion.div>
                 ) : (
                     this.props.imgArray.map((img, index) => (
